@@ -20,13 +20,19 @@ public interface Constants {
 //                    SAMPLE_RATE,
 //                    AudioFormat.CHANNEL_IN_MONO,
 //                    ENCODING_PCM_NUM_BITS)) / FRAME_SIZE )) * FRAME_SIZE);
-public static final int RECORD_BUFFER_SIZE=20;
+public static final int RECORD_BUFFER_SIZE=(int) Math.ceil(((double) (AudioRecord.getMinBufferSize(
+                    SAMPLE_RATE,
+                    AudioFormat.CHANNEL_IN_MONO,
+                    ENCODING_PCM_NUM_BITS)) / FRAME_SIZE )) * FRAME_SIZE;
 //    public static final int TRACK_BUFFER_SIZE = Math.max(
 //            FRAME_SIZE,
 //            (int) Math.ceil(((double) (AudioTrack.getMinBufferSize(
 //                    SAMPLE_RATE,
 //                    AudioFormat.CHANNEL_OUT_MONO,
 //                    ENCODING_PCM_NUM_BITS)) / FRAME_SIZE )) * FRAME_SIZE);
-public static final int TRACK_BUFFER_SIZE=20;
+public static final int TRACK_BUFFER_SIZE=(int) Math.ceil(((double) (AudioTrack.getMinBufferSize(
+                    SAMPLE_RATE,
+                    AudioFormat.CHANNEL_OUT_MONO,
+                    ENCODING_PCM_NUM_BITS)) / FRAME_SIZE )) * FRAME_SIZE;
     public static final int PORT=2010;
 }
